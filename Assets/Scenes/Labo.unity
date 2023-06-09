@@ -504,6 +504,7 @@ MonoBehaviour:
   m_GroundCheck: {fileID: 490423044}
   m_CeilingCheck: {fileID: 1943112777}
   m_CrouchDisableCollider: {fileID: 0}
+  jumpCount: 0
   OnLandEvent:
     m_PersistentCalls:
       m_Calls:
@@ -564,6 +565,7 @@ MonoBehaviour:
   runSpeed: 40
   animator: {fileID: 1281242264}
   dashForce: 25
+  maxJumps: 3
 --- !u!95 &1281242264
 Animator:
   serializedVersion: 5

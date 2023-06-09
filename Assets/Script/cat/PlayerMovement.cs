@@ -21,6 +21,9 @@ public class PlayerMovement : MonoBehaviour
     private float dashingTime = 0.2f;
     private float dashingCooldown = 1f;
 
+    public int maxJumps = 2; // Nombre maximum de sauts autorisés
+    private int jumpCount = 0; // Nombre de sauts effectués
+
 
     void Start()
     {
@@ -45,10 +48,22 @@ public class PlayerMovement : MonoBehaviour
     }
      public void Jump()
     {
+       // int maxJumps = 2; // Nombre maximum de sauts autorisés
+        //int jumpCount = 0; // Nombre de sauts effectués
+        int i = 0;
         if (Input.GetButtonDown("Jump"))
         {
-            jump = true;
-            animator.SetBool("IsJumping", true);
+
+            if (jumpCount < maxJumps)
+            {
+                jump = true;
+                animator.SetBool("IsJumping", true);
+                jumpCount++;
+            }
+
+
+
+
         }
         if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
         {
@@ -72,6 +87,7 @@ public class PlayerMovement : MonoBehaviour
     public void OnLanding()
     {
         animator.SetBool("IsJumping", false);
+        jumpCount = 0;
     }
 
     private IEnumerator Dash()
