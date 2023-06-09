@@ -10,10 +10,18 @@ public class PlayerMovement : MonoBehaviour
     float honrizontalMove = 0f;
     bool jump = false;
     public Animator animator;
-    public float dashForce = 10f;
+    
 
     private Rigidbody2D rb;
     private Transform selfTransform;
+
+    public float dashForce = 10f;
+    private bool canDash = true;
+    private bool isDashing = false;
+    private float dashingTime = 0.2f;
+    private float dashingCooldown = 1f;
+
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -24,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isDashing) return;
 
        honrizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         Jump();
@@ -41,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
             jump = true;
             animator.SetBool("IsJumping", true);
         }
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
         {
             animator.SetBool("IsJumping", false);
             animator.Play("Rush");
@@ -51,7 +60,8 @@ public class PlayerMovement : MonoBehaviour
             Vector2 dashDirection = selfTransform.right;
 
             // Appliquer la force de dash au Rigidbody de l'objet
-            rb.AddForce(dashDirection * dashForce, ForceMode2D.Impulse);
+
+            StartCoroutine(Dash());
 
         }
     }
@@ -62,5 +72,19 @@ public class PlayerMovement : MonoBehaviour
     public void OnLanding()
     {
         animator.SetBool("IsJumping", false);
+    }
+
+    private IEnumerator Dash()
+    {
+        canDash = false;
+        isDashing = true;
+        float originalGravity = rb.gravityScale;
+        rb.gravityScale = 0f;
+        rb.velocity = new Vector2(transform.localScale.x * dashForce, 0f);
+        yield return new WaitForSeconds(dashingTime);
+        rb.gravityScale = originalGravity;
+        isDashing = false;
+        yield return new WaitForSeconds(dashingCooldown);
+        canDash = true;
     }
 }
