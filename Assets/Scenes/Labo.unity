@@ -563,7 +563,7 @@ MonoBehaviour:
   controller: {fileID: 1281242261}
   runSpeed: 40
   animator: {fileID: 1281242264}
-  dashForce: 10
+  dashForce: 25
 --- !u!95 &1281242264
 Animator:
   serializedVersion: 5
