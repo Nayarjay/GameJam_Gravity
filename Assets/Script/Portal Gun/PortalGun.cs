@@ -21,19 +21,27 @@ public class PortalGun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 direction = mousePos - (Vector2)transform.position;
+        //roate gun arm
+
         if (Input.GetMouseButtonDown(0))
         {
-            Vector2 cursorPos = cam.ScreenToWorldPoint(Input.mousePosition);
-
-            // Créer le portail bleu
-            CreatePortal(cursorPos, Blueportal, ref bluePortal);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, Mathf.Infinity);
+            if (hit.collider != null)
+            {
+                Vector2 hitPoint = hit.point;
+                CreatePortal(hitPoint, Blueportal, ref bluePortal);
+            }
         }
         else if (Input.GetMouseButtonDown(1))
         {
-            Vector2 cursorPos = cam.ScreenToWorldPoint(Input.mousePosition);
-
-            // Créer le portail orange
-            CreatePortal(cursorPos, Orangeportal, ref orangePortal);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, Mathf.Infinity);
+            if (hit.collider != null)
+            {
+                Vector2 hitPoint = hit.point;
+                CreatePortal(hitPoint, Orangeportal, ref orangePortal);
+            }
         }
     }
 
@@ -51,5 +59,13 @@ public class PortalGun : MonoBehaviour
         portal = Instantiate(portalPrefab, new Vector3(position.x, position.y, 0), Quaternion.identity);
 
         // Effectuer une rotation du bras du pistolet (ajoutez votre code de rotation ici)
+    }
+    // Dessiner le raycast avec une ligne de débogage
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 direction = mousePos - (Vector2)transform.position;
+        Gizmos.DrawRay(transform.position, direction);
     }
 }
