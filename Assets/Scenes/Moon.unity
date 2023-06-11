@@ -2014,6 +2014,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5855196906899079001, guid: e0ae08fb178aae04e8c16643d8ac4ecd, type: 3}
+      propertyPath: orthographic size
+      value: 6.335679
+      objectReference: {fileID: 0}
     - target: {fileID: 6110596240863591680, guid: e0ae08fb178aae04e8c16643d8ac4ecd, type: 3}
       propertyPath: m_Name
       value: WhiteCatDamage_3
