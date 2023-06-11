@@ -22589,6 +22589,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7764719099278746720, guid: 1381c10df22c1a848826bba0176db61e, type: 3}
+      propertyPath: canDash
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7764719099278746720, guid: 1381c10df22c1a848826bba0176db61e, type: 3}
+      propertyPath: maxJumps
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7764719099278746722, guid: 1381c10df22c1a848826bba0176db61e, type: 3}
+      propertyPath: MaxJump
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7764719099278746724, guid: 1381c10df22c1a848826bba0176db61e, type: 3}
       propertyPath: m_RootOrder
       value: 4
