@@ -6,12 +6,14 @@ using UnityEngine.SceneManagement;
 public class LevelLoader : MonoBehaviour
 {
     public Animator transition;
+    int currentScene;
 
     public static LevelLoader Instance { get; set; }
 
     private void Awake()
     {
         Instance = this;
+        currentScene = SceneManager.GetActiveScene().buildIndex;
     }
 
     void Update()
@@ -24,12 +26,12 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
+        StartCoroutine(LoadLevel(currentScene + 1));
     }
 
     public void LoadPastLevel()
     {
-        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex - 1));
+        StartCoroutine(LoadLevel(currentScene - 1));
     }
 
     IEnumerator LoadLevel(int levelIndex)
