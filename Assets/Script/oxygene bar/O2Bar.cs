@@ -63,8 +63,8 @@ public class O2Bar : MonoBehaviour
         }
         //currentO2 = Mathf.Clamp(currentO2 - Mathf.RoundToInt(drainRate * Time.deltaTime), 0, maxO2);
         SetO2(currentO2);  // Mettre à jour la valeur de l'O2 sur le slider
-        Debug.Log(isInO2Zone);
-        Debug.Log(currentO2);
+       // Debug.Log(isInO2Zone);
+       // Debug.Log(currentO2);
     }
 
     public void SetMaxO2(int maxO2)
