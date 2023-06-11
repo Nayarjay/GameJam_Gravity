@@ -16,14 +16,6 @@ public class LevelLoader : MonoBehaviour
         currentScene = SceneManager.GetActiveScene().buildIndex;
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            LoadNextLevel();
-        }
-    }
-
     public void LoadNextLevel()
     {
         StartCoroutine(LoadLevel(currentScene + 1));
