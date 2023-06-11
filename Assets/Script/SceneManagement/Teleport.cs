@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Teleport : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public bool isNext;
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (isNext)
+        {
+            LevelLoader.Instance.LoadNextLevel();
+        }
+        else
+        {
+            LevelLoader.Instance.LoadPastLevel();
+        }
     }
 }
