@@ -9,6 +9,7 @@ public class catchGun : MonoBehaviour
     bool isPortable;
     private void Start()
     {
+        this.GetComponent<PortalGun>().enabled = false;
         playerTransform = null;
         relativePosition = transform.localPosition;
     }
@@ -34,6 +35,7 @@ public class catchGun : MonoBehaviour
             Collider2D myCollider = GetComponent<Collider2D>();
             myCollider.enabled = false;
             isPortable = true;
+            this.GetComponent<PortalGun>().enabled = true;
         }
     }
 }

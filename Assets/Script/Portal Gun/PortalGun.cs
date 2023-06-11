@@ -63,9 +63,9 @@ public class PortalGun : MonoBehaviour
     // Dessiner le raycast avec une ligne de débogage
     void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
+        /*Gizmos.color = Color.red;
         Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         Vector2 direction = mousePos - (Vector2)transform.position;
-        Gizmos.DrawRay(transform.position, direction);
+        Gizmos.DrawRay(transform.position, direction);*/
     }
 }
