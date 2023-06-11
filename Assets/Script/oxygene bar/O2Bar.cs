@@ -46,7 +46,7 @@ public class O2Bar : MonoBehaviour
 
         if (isInO2Zone)
         {
-            if (!isIncreasingO2)
+            if (!isIncreasingO2 && currentO2<100)
             {
                 StartCoroutine(IncreaseO2());
             }
@@ -56,7 +56,7 @@ public class O2Bar : MonoBehaviour
             // Diminuer l'O2 progressivement en fonction de la vitesse de consommation
             //currentO2 = Mathf.Clamp(currentO2 - Mathf.RoundToInt(drainRate * Time.deltaTime), 0, maxO2);
             //currentO2 -= 1;
-            if (!isDecreasingO2)
+            if (!isDecreasingO2 && currentO2>0)
             {
                 StartCoroutine(DecreaseO2());
             }
