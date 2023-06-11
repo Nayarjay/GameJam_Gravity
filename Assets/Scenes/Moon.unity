@@ -2074,6 +2074,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 143547857
       objectReference: {fileID: 0}
+    - target: {fileID: 6110596240863591684, guid: e0ae08fb178aae04e8c16643d8ac4ecd, type: 3}
+      propertyPath: MaxJump
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7206876544490295378, guid: e0ae08fb178aae04e8c16643d8ac4ecd, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
