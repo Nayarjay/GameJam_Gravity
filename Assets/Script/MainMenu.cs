@@ -9,10 +9,10 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        StartCoroutine(DoPlay());
+        StartCoroutine(NextScene());
     }
 
-    IEnumerator DoPlay()
+    IEnumerator NextScene()
     {
         yield return StartCoroutine(Transition());
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);

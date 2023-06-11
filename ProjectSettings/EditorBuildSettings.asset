@@ -12,6 +12,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Cemetary.unity
     guid: d4571d626d632e84baf79fa32b3b40c0
   - enabled: 1
+    path: Assets/Scenes/PinkForest.unity
+    guid: 9dacb476613675d4d9332475524ce48e
+  - enabled: 1
+    path: Assets/Scenes/RockMountain.unity
+    guid: aedbe88548c4f6242bba5dbf10381257
+  - enabled: 1
+    path: Assets/Scenes/Clouds.unity
+    guid: 26f09ce0f7edc9a48a5b5321b73363d1
+  - enabled: 1
     path: Assets/Scenes/Labo.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}
