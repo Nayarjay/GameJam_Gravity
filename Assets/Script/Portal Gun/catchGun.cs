@@ -18,7 +18,7 @@ public class catchGun : MonoBehaviour
     {
         if (isPortable)
         {
-            transform.localPosition = new Vector3(0f, 0.87f, 0f);
+            transform.localPosition = new Vector3(0.83f, 0f, 0f);
         }
      
     }
