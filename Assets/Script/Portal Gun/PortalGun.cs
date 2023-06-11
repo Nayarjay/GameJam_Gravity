@@ -45,14 +45,14 @@ public class PortalGun : MonoBehaviour
         }
     }
 
-    // Créer un portail et détruire l'ancien portail de même couleur
+    // Créer un portail et détruire l'ancien portail de même couleur si les deux portails existent déjà
     void CreatePortal(Vector2 position, GameObject portalPrefab, ref GameObject portal)
     {
-        // Vérifier si le portail existe déjà
-        if (portal != null)
+        if (bluePortal != null && orangePortal != null)
         {
-            // Détruire l'ancien portail
-            Destroy(portal);
+            // Si les deux portails existent, détruire les anciens portails
+            Destroy(bluePortal);
+            Destroy(orangePortal);
         }
 
         // Créer le nouveau portail

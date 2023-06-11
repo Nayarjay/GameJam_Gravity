@@ -9,35 +9,48 @@ public class Portal : MonoBehaviour
     public float distance = 0.2f;
     private bool isTeleporting = false;
     private bool hasExitedPortal = false;
+    private void Start()
+    {
+        this.GetComponent<Collider2D>().enabled = false;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (isTeleporting)
+        try
         {
-            return; // Exit the function if already teleporting to prevent teleporting again
-        }
-
-        if (collision.CompareTag("Player"))
-        {
-            if (hasExitedPortal)
+            if (isTeleporting)
             {
-                hasExitedPortal = false;
+                return; // Exit the function if already teleporting to prevent teleporting again
             }
-            else
-            {
-                isTeleporting = true;
 
-                if (isOrange)
+            if (collision.CompareTag("Player"))
+            {
+                if (hasExitedPortal)
                 {
-                    destination = GameObject.FindGameObjectWithTag("blue portal").transform;
+                    hasExitedPortal = false;
                 }
                 else
                 {
-                    destination = GameObject.FindGameObjectWithTag("orange portal").transform;
-                }
+                    isTeleporting = true;
 
-                StartCoroutine(TeleportPlayer(collision.transform));
+                    if (isOrange)
+                    {
+                        destination = GameObject.FindGameObjectWithTag("blue portal").transform;
+                    }
+                    else
+                    {
+                        destination = GameObject.FindGameObjectWithTag("orange portal").transform;
+                       
+                       
+                    }
+
+                    StartCoroutine(TeleportPlayer(collision.transform));
+                }
             }
+        }
+        catch (System.NullReferenceException e)
+        {
+            Debug.LogError("NullReferenceException caught: " + e.Message);
         }
     }
 
@@ -62,4 +75,22 @@ public class Portal : MonoBehaviour
         player.position = destination.position;
         isTeleporting = false;
     }
+    public bool CheckPortals()
+    {
+        GameObject bluePortal = GameObject.FindGameObjectWithTag("blue portal");
+        GameObject orangePortal = GameObject.FindGameObjectWithTag("orange portal");
+
+        bool portalsFound = bluePortal != null && orangePortal != null;
+
+        return portalsFound;
+    }
+    private void Update()
+    {
+        if (CheckPortals())
+        {
+            this.GetComponent<Collider2D>().enabled = true;
+        }
+       
+    }
+
 }

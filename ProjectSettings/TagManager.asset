@@ -6,6 +6,7 @@ TagManager:
   tags:
   - blue portal
   - orange portal
+  - Portal
   layers:
   - Default
   - TransparentFX
