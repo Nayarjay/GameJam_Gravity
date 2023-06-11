@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     private Transform selfTransform;
 
     public float dashForce = 10f;
-    private bool canDash = true;
+    public bool canDash = true;
     private bool isDashing = false;
     private float dashingTime = 0.2f;
     private float dashingCooldown = 1f;
@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
         //int jumpCount = 0; // Nombre de sauts effectués
         //int i = 0;
 
-        if (Input.GetButtonDown("Jump") && jumpCount <= maxJumps-1 )
+        if (Input.GetButtonDown("Jump") && jumpCount <= maxJumps )
         {
             jumpCount++;
             jump = true;

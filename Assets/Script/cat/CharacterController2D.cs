@@ -12,6 +12,7 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private Transform m_CeilingCheck;                          // A position marking where to check for ceilings
 	[SerializeField] private Collider2D m_CrouchDisableCollider;  
 	public int jumpCount;// A collider that will be disabled when crouching
+	public int MaxJump;
 
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 	private bool m_Grounded;            // Whether or not the player is grounded.
@@ -134,7 +135,7 @@ public class CharacterController2D : MonoBehaviour
 				m_Grounded = false;
 				jumpCount = 1; // Set jumpCount to 1
 			}
-			else if (jumpCount < 2)
+			else if (jumpCount < MaxJump)
 			{
 				// Perform the double jump if jumpCount is less than 2
 				m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, 0f);
