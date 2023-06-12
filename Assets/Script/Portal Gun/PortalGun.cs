@@ -34,7 +34,7 @@ public class PortalGun : MonoBehaviour
                 CreatePortal(hitPoint, Blueportal, ref bluePortal);
             }
         }
-        else if (Input.GetMouseButtonDown(1))
+        /*else if (Input.GetMouseButtonDown(1))
         {
             RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, Mathf.Infinity);
             if (hit.collider != null)
@@ -42,25 +42,25 @@ public class PortalGun : MonoBehaviour
                 Vector2 hitPoint = hit.point;
                 CreatePortal(hitPoint, Orangeportal, ref orangePortal);
             }
-        }
+        }*/
     }
 
-    // Créer un portail et détruire l'ancien portail de même couleur
+    // Crï¿½er un portail et dï¿½truire l'ancien portail de mï¿½me couleur
     void CreatePortal(Vector2 position, GameObject portalPrefab, ref GameObject portal)
     {
-        // Vérifier si le portail existe déjà
+        // Vï¿½rifier si le portail existe dï¿½jï¿½
         if (portal != null)
         {
-            // Détruire l'ancien portail
+            // Dï¿½truire l'ancien portail
             Destroy(portal);
         }
 
-        // Créer le nouveau portail
+        // Crï¿½er le nouveau portail
         portal = Instantiate(portalPrefab, new Vector3(position.x, position.y, 0), Quaternion.identity);
 
         // Effectuer une rotation du bras du pistolet (ajoutez votre code de rotation ici)
     }
-    // Dessiner le raycast avec une ligne de débogage
+    // Dessiner le raycast avec une ligne de dï¿½bogage
     void OnDrawGizmos()
     {
         /*Gizmos.color = Color.red;
