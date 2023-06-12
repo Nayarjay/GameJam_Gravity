@@ -1383,6 +1383,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7561844403077107056, guid: 3177eff153663574d9268fb0c4531d59, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 3699384c92e985d41a28c66dcaca8829, type: 2}
     - target: {fileID: 7561844403077107061, guid: 3177eff153663574d9268fb0c4531d59, type: 3}
       propertyPath: m_Name
       value: ParadiseCat
